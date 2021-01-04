@@ -2,6 +2,10 @@ a{
    text-decoration: none;
 }
 
+table, th, td {
+   border: 1px solid black;
+}
+
 .socialButton {
    width:25px;
    height:25px;
