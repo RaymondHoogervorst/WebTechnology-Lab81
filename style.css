@@ -4,8 +4,30 @@
    --tertary-color: green;
 }
 
-body{
+body {
    margin: 0px;
+}
+
+header {
+   background-image: url("https://www.lithospos.com/storage/app/media/fruits-vegetables-pos-banner.jpg");
+   background-color: var(--primary-color);
+}
+
+nav {
+   background-color: var(--secundary-color);
+   font-size: 0;
+}
+
+.navbutton {
+   display:inline-block;
+   padding: 15px;
+   border-right: 1px solid gray;
+   color: black;
+   font-size: 15pt;
+}
+
+.navbutton:hover {
+   background-color: yellowgreen;
 }
 
 a{
