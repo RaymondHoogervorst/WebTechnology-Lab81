@@ -1,9 +1,39 @@
+:root {
+   --primary-color: red;
+   --secundary-color: yellow;
+   --tertary-color: green;
+}
+
+body{
+   margin: 0px;
+}
+
 a{
    text-decoration: none;
 }
 
 table, th, td {
    border: 1px solid black;
+}
+
+
+footer {
+   background-color: var(--tertary-color);
+   color: white;
+   overflow: hidden;
+   padding: 8px;
+}
+
+footer a {
+   color: white;
+}
+
+.left {
+   float:left;
+}
+
+.right {
+   float:right;
 }
 
 .socialButton {
