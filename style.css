@@ -46,16 +46,12 @@ nav {
    background-color: yellowgreen;
 }
 
-a{
+a, abbr {
    text-decoration: none;
 }
 
 table, th, td {
    border: 1px solid black;
-}
-
-abbr {
-   text-decoration: none;
 }
 
 footer {
