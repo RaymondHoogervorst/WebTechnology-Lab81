@@ -3,11 +3,14 @@
    --secundary-color: yellow;
    --tertary-color: green;
 
+   --main-background: #ff6961;
+
    --side-padding: 25px;
 }
 
 body {
    margin: 0px;
+   background-color: var(--main-background);
 }
 
 h1, nav, section, footer {
