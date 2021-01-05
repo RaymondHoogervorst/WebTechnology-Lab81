@@ -11,6 +11,7 @@
 body {
    margin: 0px;
    background-color: var(--main-background);
+   font: 20px Arial;
 }
 
 h1, nav, section, footer {
