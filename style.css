@@ -61,12 +61,21 @@ section {
    display: inline;
 }
 
-figure {
-   float: right;
+table {
+   width: 80%;
+   margin-left: 10%;
+   margin-right: 10%;
 }
 
 table, th, td {
    border: 1px solid black;
+}
+
+table img {
+   max-width: 250px;
+   max-height: 250px;
+   height: auto;
+   width: auto;
 }
 
 footer {
