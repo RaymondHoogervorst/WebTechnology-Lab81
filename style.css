@@ -62,14 +62,37 @@ section {
    display: inline;
 }
 
+caption {
+   background-color: var(--primary-color);
+}
+
 table {
    width: 80%;
    margin-left: 10%;
    margin-right: 10%;
+   border-spacing: 0px;
 }
 
-table, th, td {
-   border: 1px solid black;
+table .header {
+   background-color: var(--primary-color);
+}
+
+table .odd {
+   background-color: cyan;
+}
+
+table .even {
+   background-color: lightblue;
+}
+
+td {
+   text-align: center;
+   padding: 5px;
+}
+
+td input {
+   width: 100%;
+   box-sizing: border-box;
 }
 
 table img {
