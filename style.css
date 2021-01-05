@@ -54,6 +54,9 @@ table, th, td {
    border: 1px solid black;
 }
 
+abbr {
+   text-decoration: none;
+}
 
 footer {
    background-color: var(--tertary-color);
