@@ -50,6 +50,18 @@ a, abbr {
    text-decoration: none;
 }
 
+section {
+   overflow: hidden;
+}
+
+#about p {
+   display: inline;
+}
+
+figure {
+   float: right;
+}
+
 table, th, td {
    border: 1px solid black;
 }
