@@ -142,8 +142,12 @@ footer {
    overflow: hidden;
 }
 
-footer a {
+footer a:link {
    color: white;
+}
+
+footer a:visited {
+   color: palevioletred;
 }
 
 .left {
