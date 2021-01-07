@@ -74,6 +74,7 @@ figure {
 
 #about p {
    display: inline;
+   text-indent: 5px;
 }
 
 ol li {
@@ -90,6 +91,7 @@ table {
    margin-right: 10%;
    border-spacing: 0px;
    text-transform: capitalize;
+   caption-side: top;
 }
 
 .tableheader, .tableform, .tablebottom {
