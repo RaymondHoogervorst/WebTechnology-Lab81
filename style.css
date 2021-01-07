@@ -72,6 +72,15 @@ figure {
    font-weight: bold;
 }
 
+figure img {
+   width: 100%;
+   height: auto;
+}
+
+figure figcaption {
+   padding: 2px;
+}
+
 #about p {
    display: inline;
    text-indent: 5px;
