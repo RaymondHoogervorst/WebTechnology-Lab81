@@ -95,15 +95,23 @@ caption {
 }
 
 table {
-   width: 80%;
-   margin-left: 10%;
-   margin-right: 10%;
+   width: 80vw;
+   margin-left: 10vw;
+   margin-right: 10vw;
    border-spacing: 0px;
    text-transform: capitalize;
    caption-side: top;
 }
 
-.tableheader, .tableform, .tablebottom {
+#col1, #col2, #col3, #col4 {
+   width: 15%;
+}
+
+#col5 {
+   width: 40%;
+}
+
+.tableheader, .tableform {
    background-color: var(--primary-color);
 }
 
@@ -137,8 +145,8 @@ td input {
 }
 
 table img {
-   max-width: 250px;
-   max-height: 250px;
+   max-width: 100%;
+   max-height: 25vh;
    height: auto;
    width: auto;
 }
@@ -193,8 +201,18 @@ footer a:visited {
 }
 
 @media all and (max-width: 800px) {
-   figure {
+   figure, table .tableform {
       display: none;
+   }
+}
+
+@media all and (max-width: 600px) {
+   table .col5 {
+      display: none;
+   }
+
+   table {
+      font-size: 2.5vw;
    }
 }
 
