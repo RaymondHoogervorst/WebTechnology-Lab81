@@ -156,11 +156,12 @@ ul {
 }
 
 footer {
-   background-color: var(--tertary-color);
+   background-image: url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg");
+   background-repeat: repeat-x; 
    padding: 8px var(--side-padding);
-   color: white;
-   overflow: hidden;
-}
+    color: white;
+    overflow: hidden;
+ }
 
 footer a:link {
    color: white;
