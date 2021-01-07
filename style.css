@@ -144,6 +144,10 @@ table input:active[type="submit"] {
    background-color: purple;
 }
 
+ul {
+   list-style-type: square;
+}
+
 footer {
    background-color: var(--tertary-color);
    padding: 8px var(--side-padding);
