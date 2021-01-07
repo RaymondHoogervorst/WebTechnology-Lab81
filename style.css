@@ -81,6 +81,7 @@ table {
    margin-left: 10%;
    margin-right: 10%;
    border-spacing: 0px;
+   text-transform: capitalize;
 }
 
 .tableheader, .tableform, .tablebottom {
