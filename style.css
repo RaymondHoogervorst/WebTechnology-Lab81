@@ -62,6 +62,10 @@ section {
    display: inline;
 }
 
+ol li {
+   margin: 5px;
+}
+
 caption {
    background-color: var(--primary-color);
 }
