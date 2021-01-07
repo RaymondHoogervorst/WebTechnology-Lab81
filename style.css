@@ -14,7 +14,7 @@ body {
    font: 20px Arial;
 }
 
-h1, nav, section, footer {
+h1, pre, nav, section, footer {
    padding-left: var(--side-padding);
    padding-right: var(--side-padding);
 }
@@ -26,7 +26,14 @@ header {
 
 h1 {
    margin-top: 0;
+   margin-bottom: 0;
    font-size: 4em;
+}
+
+pre {
+   margin-top: 0;
+   margin-bottom: 5;
+   font-size: 1.5em;
 }
 
 nav {
