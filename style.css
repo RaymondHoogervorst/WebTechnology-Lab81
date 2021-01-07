@@ -32,7 +32,7 @@ h1 {
 
 pre {
    margin-top: 0;
-   margin-bottom: 5;
+   margin-bottom: 5px;
    font-size: 1.5em;
 }
 
@@ -116,7 +116,7 @@ table {
 }
 
 table caption {
-   border-bottom-width: 3;
+   border-bottom-width: 3px;
    border-bottom-color: black;
    border-bottom-style: solid;
 }
