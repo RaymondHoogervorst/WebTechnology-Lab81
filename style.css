@@ -115,6 +115,11 @@ table .even {
 td {
    text-align: center;
    padding: 5px;
+   vertical-align: top;
+}
+
+td dl {
+   margin-top: 0;
 }
 
 td input {
