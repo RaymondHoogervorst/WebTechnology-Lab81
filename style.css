@@ -158,3 +158,9 @@ footer a {
    width:25px;
    height:25px;
 }
+
+@media all and (max-width: 800px) {
+   figure {
+      display: none;
+   }
+}
