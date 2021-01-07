@@ -83,8 +83,14 @@ table {
    border-spacing: 0px;
 }
 
-table .header {
+.tableheader, .tableform, .tablebottom {
    background-color: var(--primary-color);
+}
+
+table caption {
+   border-bottom-width: 3;
+   border-bottom-color: black;
+   border-bottom-style: solid;
 }
 
 table .odd {
@@ -110,6 +116,23 @@ table img {
    max-height: 250px;
    height: auto;
    width: auto;
+}
+
+table input {
+   background-color: var(--secundary-color);
+}
+
+table input:hover, table input:focus {
+   background-color: blue;
+   color: white;
+}
+
+table input:hover::placeholder, table input:hover::placeholder {
+   color: lightgray;
+}
+
+table input:active[type="submit"] {
+   background-color: purple;
 }
 
 footer {
