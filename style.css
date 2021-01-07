@@ -175,8 +175,9 @@ ul {
 footer {
    background: url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg") repeat-x; 
    padding: 8px var(--side-padding);
-    color: white;
-    overflow: hidden;
+   color: white;
+   overflow: hidden;
+   width: 100vw;
  }
 
 footer a:link {
@@ -213,5 +214,11 @@ footer a:visited {
 
    table {
       font-size: 2.5vw;
+   }
+
+   footer .left, footer .right {
+      float: none;
+      display: block;
+      margin-top: 5vh;
    }
 }
