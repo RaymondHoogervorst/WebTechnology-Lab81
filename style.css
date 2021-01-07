@@ -69,6 +69,7 @@ figure {
    float:right;
    font-size: 0.85em;
    background-color: lightgray;
+   font-weight: bold;
 }
 
 #about p {
