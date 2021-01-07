@@ -58,6 +58,12 @@ section {
    overflow: hidden;
 }
 
+figure {
+   float:right;
+   font-size: 0.85em;
+   background-color: lightgray;
+}
+
 #about p {
    display: inline;
 }
