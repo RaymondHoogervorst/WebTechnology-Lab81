@@ -1,171 +1,176 @@
 :root {
-   --primary-color: red;
-   --secundary-color: yellow;
-   --tertary-color: green;
+    --primary-color: red;
+    --secundary-color: yellow;
+    --tertary-color: green;
+ 
+    --main-background: #ff6961;
+ 
+    --side-padding: 25px;
+ }
+ 
+ body {
+    margin: 0px;
+    background-color: var(--main-background);
+    font: 20px Arial;
+ }
+ 
+ h1, nav, section, footer {
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+ }
+ 
+ header {
+    background-image: url("https://www.lithospos.com/storage/app/media/fruits-vegetables-pos-banner.jpg");
+    background-color: var(--primary-color);
+ }
+ 
+ h1 {
+    margin-top: 0;
+    font-size: 4em;
+ }
+ 
+ nav {
+    background-color: var(--secundary-color);
+    font-size: 0;
+ }
+ 
+ #navbuttons {
+    border-left: 1px solid gray;
+ }
+ 
+ .navbutton {
+    display:inline-block;
+    padding: 15px;
+    border-right: 1px solid gray;
+    color: black;
+    font-size: 15pt;
+ }
+ 
+ .navbutton:hover {
+    background-color: yellowgreen;
+ }
+ 
+ a, abbr {
+    text-decoration: none;
+ }
 
-   --main-background: #ff6961;
+ section {
+    overflow: hidden;
+ }
+ 
+ figure {
+    float:right;
+    font-size: 0.85em;
+    background-color: lightgray;
+ }
+ 
+ #about p {
+    display: inline;
+ }
 
-   --side-padding: 25px;
-}
+section#about > p {
+    text-indent: 20px;
+ }
 
-body {
-   margin: 0px;
-   background-color: var(--main-background);
-   font: 20px Arial;
-}
-
-h1, nav, section, footer {
-   padding-left: var(--side-padding);
-   padding-right: var(--side-padding);
-}
-
-header {
-   background-image: url("https://www.lithospos.com/storage/app/media/fruits-vegetables-pos-banner.jpg");
-   background-color: var(--primary-color);
-}
-
-h1 {
-   margin-top: 0;
-   font-size: 4em;
-}
-
-nav {
-   background-color: var(--secundary-color);
-   font-size: 0;
-}
-
-#navbuttons {
-   border-left: 1px solid gray;
-}
-
-.navbutton {
-   display:inline-block;
-   padding: 15px;
-   border-right: 1px solid gray;
-   color: black;
-   font-size: 15pt;
-}
-
-.navbutton:hover {
-   background-color: yellowgreen;
-}
-
-a, abbr {
-   text-decoration: none;
-}
-
-section {
-   overflow: hidden;
-}
-
-figure {
-   float:right;
-   font-size: 0.85em;
-   background-color: lightgray;
-}
-
-#about p {
-   display: inline;
-}
-
-ol li {
-   margin: 5px;
-}
-
-caption {
-   background-color: var(--primary-color);
-}
-
-table {
-   width: 80%;
-   margin-left: 10%;
-   margin-right: 10%;
-   border-spacing: 0px;
-   text-transform: capitalize;
-}
-
-.tableheader, .tableform, .tablebottom {
-   background-color: var(--primary-color);
-}
-
-table caption {
-   border-bottom-width: 3;
-   border-bottom-color: black;
-   border-bottom-style: solid;
-}
-
-table .odd {
-   background-color: cyan;
-}
-
-table .even {
-   background-color: lightblue;
-}
-
-td {
-   text-align: center;
-   padding: 5px;
-}
-
-td input {
-   width: 100%;
-   box-sizing: border-box;
-}
-
-table img {
-   max-width: 250px;
-   max-height: 250px;
-   height: auto;
-   width: auto;
-}
-
-table input {
-   background-color: var(--secundary-color);
-}
-
-table input:hover, table input:focus {
-   background-color: blue;
-   color: white;
-}
-
-table input:hover::placeholder, table input:hover::placeholder {
-   color: lightgray;
-}
-
-table input:active[type="submit"] {
-   background-color: purple;
-}
-
-footer {
-   background-color: var(--tertary-color);
-   padding: 8px var(--side-padding);
-   color: white;
-   overflow: hidden;
-}
-
-footer a:link {
-   color: white;
-}
-
-footer a:visited {
-   color: palevioletred;
-}
-
-.left {
-   float:left;
-}
-
-.right {
-   float:right;
-}
-
-.socialButton {
-   width:25px;
-   height:25px;
-}
-
-@media all and (max-width: 800px) {
-   figure {
-      display: none;
-   }
-}
+ ol li {
+    margin: 5px;
+ }
+ 
+ caption {
+    background-color: var(--primary-color);
+ }
+ 
+ table {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-spacing: 0px;
+    text-transform: capitalize;
+ }
+ 
+ .tableheader, .tableform, .tablebottom {
+    background-color: var(--primary-color);
+ }
+ 
+ table caption {
+    border-bottom-width: 3;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+ }
+ 
+ table .odd {
+    background-color: cyan;
+ }
+ 
+ table .even {
+    background-color: lightblue;
+ }
+ 
+ td {
+    text-align: center;
+    padding: 5px;
+ }
+ 
+ td input {
+    width: 100%;
+    box-sizing: border-box;
+ }
+ 
+ table img {
+    max-width: 250px;
+    max-height: 250px;
+    height: auto;
+    width: auto;
+ }
+ 
+ table input {
+    background-color: var(--secundary-color);
+ }
+ 
+ table input:hover, table input:focus {
+    background-color: blue;
+    color: white;
+ }
+ 
+ table input:hover::placeholder, table input:hover::placeholder {
+    color: lightgray;
+ }
+ 
+ table input:active[type="submit"] {
+    background-color: purple;
+ }
+ 
+ footer {
+    background-color: var(--tertary-color);
+    padding: 8px var(--side-padding);
+    color: white;
+    overflow: hidden;
+ }
+ 
+ footer a:link {
+    color: white;
+ }
+ 
+ footer a:visited {
+    color: palevioletred;
+ }
+ 
+ .left {
+    float:left;
+ }
+ 
+ .right {
+    float:right;
+ }
+ 
+ .socialButton {
+    width:25px;
+    height:25px;
+ }
+ 
+ @media all and (max-width: 800px) {
+    figure {
+       display: none;
+    }
+ }
+ 
