@@ -173,8 +173,7 @@ ul {
 }
 
 footer {
-   background-image: url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg");
-   background-repeat: repeat-x; 
+   background: url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg") repeat-x; 
    padding: 8px var(--side-padding);
     color: white;
     overflow: hidden;
