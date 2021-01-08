@@ -204,6 +204,21 @@ footer a:visited {
    figure, table .tableform {
       display: none;
    }
+
+   nav {
+      padding: 0px;
+   }
+
+   #navbuttons a {
+      display:block;
+      border: none;
+      border-bottom: 1px solid black;
+      padding: 2vw var(--side-padding);
+   }
+
+   #navbuttons {
+      border: none;
+   }
 }
 
 @media all and (max-width: 600px) {
