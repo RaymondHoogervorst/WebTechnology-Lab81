@@ -1,3 +1,4 @@
+/* Setting variables */
 :root {
    --primary-color: #ff2d22;
    --secundary-color: rgb(255, 255, 155);
@@ -7,43 +8,51 @@
    --side-padding: 2vw;
 }
 
+/* Setting default background and font style */
 body {
    margin: 0;
    background-color: var(--main-background);
    font: 20px Arial;
 }
 
+/* Adding side padding */
 h1, pre, nav, section, footer {
    padding-left: var(--side-padding);
    padding-right: var(--side-padding);
 }
 
+/* setting header background and reserve color */
 header {
    background-image: url("https://www.lithospos.com/storage/app/media/fruits-vegetables-pos-banner.jpg");
    background-color: var(--primary-color);
 }
 
+/* styling background */
 h1 {
    margin-top: 0;
    margin-bottom: 0;
    font-size: 4em;
 }
 
+/* Styling slogan */
 pre {
    margin-top: 0;
    margin-bottom: 5px;
    font-size: 1.5em;
 }
 
+/* Setting navbar background and remove space between individual buttons */
 nav {
    background-color: var(--secundary-color);
    font-size: 0;
 }
 
+/* Adding leftmost border */
 #navbuttons {
    border-left: 1px solid gray;
 }
 
+/* styling individual buttons */
 .navbutton {
    display:inline-block;
    padding: 15px;
@@ -56,14 +65,16 @@ nav {
    background-color: yellowgreen;
 }
 
+/* Making links look better */
 a, abbr {
    text-decoration: none;
 }
 
-section {
+section, footer {
    overflow: hidden;
 }
 
+/* Styling picture of CEO */
 figure {
    float:right;
    font-size: 0.85em;
@@ -80,26 +91,25 @@ figure figcaption {
    padding: 2px;
 }
 
+/* Styling about section text */
 #about p {
    display: inline;
    text-indent: 5px;
 }
 
+/* Leaving space between list items */
 ol li {
    margin: 5px;
 }
 
-caption {
-   background-color: var(--primary-color);
-}
-
 table {
-   width: 100%;
-   border-spacing: 0;
-   text-transform: capitalize;
-   caption-side: top;
+   width: 100%;                  /* Making table fill width */
+   border-spacing: 0;            /* Removing space between cells */
+   text-transform: capitalize;   /* Correct capitalization of data */
+   caption-side: top;            /* Defining caption size */
 }
 
+/* Setting column widths */
 #col1, #col2, #col3, #col4 {
    width: 15%;
 }
@@ -108,16 +118,19 @@ table {
    width: 40%;
 }
 
-.tableheader, .tableform {
+/* Setting background color of non-data part of tables */
+caption ,.tableheader, .tableform {
    background-color: var(--primary-color);
 }
 
+/* Adding border between table caption and index */
 table caption {
    border-bottom-width: 1px;
    border-bottom-color: black;
    border-bottom-style: solid;
 }
 
+/* Setting alternating colors for table rows */
 table .odd {
    background-color: rgb(133, 190, 209);
 }
@@ -126,6 +139,7 @@ table .even {
    background-color: lightblue;
 }
 
+/* Aligning text within cells */
 td {
    text-align: center;
    padding: 5px;
@@ -136,11 +150,13 @@ td dl {
    margin-top: 0;
 }
 
+/* Making input fields fill table cell */
 td input {
    width: 100%;
    box-sizing: border-box;
 }
 
+/* Constraining porduct image size*/
 table img {
    max-width: 100%;
    max-height: 25vh;
@@ -148,6 +164,7 @@ table img {
    width: auto;
 }
 
+/* Managing colors of form */
 table input {
    background-color: var(--secundary-color);
 }
@@ -165,18 +182,20 @@ table input:active[type="submit"] {
    background-color: purple;
 }
 
+/* Setting list prefix */
 ul {
    list-style-type: square;
 }
 
+/* Creating container for footer */
 footer {
-   background: url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg") repeat; 
+   background: black url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg") repeat;
    padding: 8px var(--side-padding);
    color: white;
    overflow: hidden;
-   margin-bottom: 0;
- }
+}
 
+ /* Setting color for links in footer */
 footer a:link {
    color: white;
 }
@@ -185,6 +204,13 @@ footer a:visited {
    color: palevioletred;
 }
 
+/* Setting size of social media buttons */
+.socialButton {
+   width:25px;
+   height:25px;
+}
+
+/* Alligning elements on either side of footer */
 .left {
    float:left;
 }
@@ -193,16 +219,13 @@ footer a:visited {
    float:right;
 }
 
-.socialButton {
-   width:25px;
-   height:25px;
-}
-
 @media all and (max-width: 800px) {
+   /* Removing CEO image and form to safe space */
    figure, table .tableform {
       display: none;
    }
 
+   /* Adjusting navigation buttons to align verticaly instead of horizontaly */
    nav {
       padding: 0;
    }
@@ -220,14 +243,18 @@ footer a:visited {
 }
 
 @media all and (max-width: 600px) {
+
+   /* Remove images column to safe space */
    table .col5 {
       display: none;
    }
 
+   /* Adjust text size to fit smaller table */
    table {
       font-size: 3.5vw;
    }
 
+   /* Align elements in footer vertical instead of vertical */
    footer .left, footer .right {
       float: none;
       display: block;
@@ -236,18 +263,23 @@ footer a:visited {
 }
 
 @media print {
-   .socialLink, nav {
+
+   /* Removing interactive parts that are useless for print */
+   .socialLink, nav, tr.tableform {
       display: none;
    }
 
+   /* Page break to prevent the table being split on multiple pages*/
    #products {
       page-break-before: always;
    }
 
+   /* Adding border to table for more clarity (background color get's ignored on some browsers) */
    td {
       border: 1px solid black;
    }
 
+   /* Make non-black text black for more contrast to white background */
    footer .left a, footer .right a, footer {
       color: black;
    }
