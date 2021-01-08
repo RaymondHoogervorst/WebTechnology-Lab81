@@ -198,7 +198,7 @@ to locals</pre>
       We removed the social media buttons and the form as they are useless in pdf form or on paper. We also noticed
       that the table would be broken up onto 2 pages, so added a page-break-before to the entire section.
 
-      The page was also tested on Microsoft Edge and Microsoft Explorer. On Edge the page rendered fine,
+      The page was also tested on Microsoft Edge and Internet Explorer. On Edge the page rendered fine,
       but we noticed at first glance that certain style elements were not working for Explorer.
       On some elements the padding seemed not present and also the background color was missing on certain elements.
 
@@ -209,7 +209,7 @@ to locals</pre>
       that problem first. Since it was capturing certain background colors and others not, our first hypothesis was
       that it had something to do with the way we defined our colors. Perhaps one of these ways was not supported by Explorer.
 
-      So we looked at the colors that were missing in Microsoft Explorer, and noticed that the problem was not at all the notation of the colors. We found out that the issue
+      So we looked at the colors that were missing in Internet Explorer, and noticed that the problem was not at all the notation of the colors. We found out that the issue
       with both the missing padding and the colors had to do with CSS-variables. Everything that was missing was defined via the variables. Since these variables
       are very efficient from a developers point of view, we were unsure on weather to remove them and place the colors in manually. To help our decision
       we decided to research what browsers do and do not support this feature. We found that Internet Explorer is the only major browser that does not support these
