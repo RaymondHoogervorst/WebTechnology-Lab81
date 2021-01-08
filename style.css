@@ -234,3 +234,21 @@ footer a:visited {
       margin-top: 5vh;
    }
 }
+
+@media print {
+   .socialLink, nav {
+      display: none;
+   }
+
+   #products {
+      page-break-before: always;
+   }
+
+   td {
+      border: 1px solid black;
+   }
+
+   footer .left a, footer .right a, footer {
+      color: black;
+   }
+}
