@@ -97,9 +97,10 @@ figure figcaption {
    text-indent: 5px;
 }
 
-/* Leaving space between list items */
+/* Leaving space between list items for key values */
 ol li {
    margin: 5px;
+   list-style: left armenian;
 }
 
 table {
