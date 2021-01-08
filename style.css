@@ -8,7 +8,7 @@
 }
 
 body {
-   margin: 0px;
+   margin: 0;
    background-color: var(--main-background);
    font: 20px Arial;
 }
@@ -94,10 +94,8 @@ caption {
 }
 
 table {
-   width: 80vw;
-   margin-left: 10vw;
-   margin-right: 10vw;
-   border-spacing: 0px;
+   width: 100%;
+   border-spacing: 0;
    text-transform: capitalize;
    caption-side: top;
 }
@@ -206,7 +204,7 @@ footer a:visited {
    }
 
    nav {
-      padding: 0px;
+      padding: 0;
    }
 
    #navbuttons a {
