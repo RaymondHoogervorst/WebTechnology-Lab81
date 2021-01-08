@@ -5,7 +5,7 @@
 
    --main-background: #ff6961;
 
-   --side-padding: 25px;
+   --side-padding: 2vw;
 }
 
 body {
@@ -173,11 +173,11 @@ ul {
 }
 
 footer {
-   background: url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg") repeat-x; 
+   background: url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg") repeat; 
    padding: 8px var(--side-padding);
    color: white;
    overflow: hidden;
-   width: 100vw;
+   margin-bottom: 0;
  }
 
 footer a:link {
