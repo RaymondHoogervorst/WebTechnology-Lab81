@@ -100,7 +100,7 @@ figure figcaption {
 /* Leaving space between list items for key values */
 ol li {
    margin: 5px;
-   list-style: left armenian;
+   list-style: armenian outside;
 }
 
 table {
