@@ -166,21 +166,31 @@ table img {
 }
 
 /* Managing colors of form */
-table input {
+.input {
    background-color: var(--secundary-color);
 }
 
-table input:hover, table input:focus {
+input:hover, input:focus, button:hover {
    background-color: yellow;
-   color: white;
 }
 
-table input:hover::placeholder, table input:hover::placeholder {
+input:hover::placeholder, input:hover::placeholder {
    color: lightgray;
 }
 
-table input:active[type="submit"] {
+input:active[type="submit"], button:active {
    background-color: purple;
+}
+
+button {
+   width: 200px;
+   height: auto;
+   margin: 2vw 0;
+   padding: 15px 1vw;
+
+   font-weight: bold;
+   font-size: 20px;
+
 }
 
 /* Setting list prefix */
@@ -222,7 +232,7 @@ footer a:visited {
 
 @media all and (max-width: 800px) {
    /* Removing CEO image and form to safe space */
-   figure, table .tableform {
+   figure, table .tableform, button {
       display: none;
    }
 
@@ -266,7 +276,7 @@ footer a:visited {
 @media print {
 
    /* Removing interactive parts that are useless for print */
-   .socialLink, nav, tr.tableform {
+   .socialLink, nav, tr.tableform, button {
       display: none;
    }
 
