@@ -131,6 +131,10 @@ table caption {
    border-bottom-style: solid;
 }
 
+.tableheader .col1, .tableheader .col2, .tableheader .col3 {
+   cursor: pointer;
+}
+
 /* Setting alternating colors for table rows */
 table .odd {
    background-color: rgb(133, 190, 209);
