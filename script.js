@@ -88,8 +88,6 @@ function sortTable() {
 
 function downloadDatabase() {
 
-   console.log("downloading");
-
    $.ajax({
       url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
       success: function(data) {
@@ -119,19 +117,22 @@ function uploadToDatabase(event) {
    amount = $(".col4 input").val();
    image = $(".col5 input").val();
 
-   let itemObject = { "product":product, "origin":origin, "best_before_date":date, "amount":amount, "image":image };
+   let itemObject = { product:product, origin:origin, best_before_date:date, amount:amount, image:image };
    let itemJson = JSON.stringify(itemObject);
 
    console.log(itemJson);
 
    //TODO: not yet working
-   $.ajax({
-      type: "POST",
+   let request = $.ajax({
+      method: "post",
       url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
       data: itemJson,
-      dataType: "json",
-      success: downloadDatabase()
-   });
+      dataType: "json"});
+      
+      request.fail(function() {
+         console.log("fail");
+         console.log(request.responseText);
+      });
 
    event.preventDefault();
 }
