@@ -86,21 +86,22 @@ function sortTable() {
 }
 
 function downloadDatabase() {
+
+   console.log("downloading");
+
    $.ajax({
       url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
       success: function(data) {
+         $(".odd, .even").remove();
 
          for (let item of data) {
             let newRow = $('<tr class="odd"></tr>');
-            console.log(item);
             newRow.append('<td class="col1">' + item.product + '</td>');
             newRow.append('<td class="col2">' + item.origin + '</td>');
             newRow.append('<td class="col3">' + item.best_before_date + '</td>');
             newRow.append('<td class="col4">' + item.amount + '</td>');
             let image = '<img src="' + item.image + '", alt="' + item.product + '">';
-            console.log(image);
             newRow.append('<td class="col5">' + image + '</td>');
-
             $(".tableheader").after(newRow);
          }
 
@@ -108,6 +109,30 @@ function downloadDatabase() {
       },
       dataType: "json"
    });
+}
+
+function uploadToDatabase(event) {
+   product = $(".col1 input").val();
+   origin = $(".col2 input").val();
+   date = $(".col3 input").val();
+   amount = $(".col4 input").val();
+   image = $(".col5 input").val();
+
+   let itemObject = { "product":product, "origin":origin, "best_before_date":date, "amount":amount, "image":image };
+   let itemJson = JSON.stringify(itemObject);
+
+   console.log(itemJson);
+
+   //TODO: not yet working
+   $.ajax({
+      type: "POST",
+      url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
+      data: itemJson,
+      dataType: "json",
+      success: downloadDatabase()
+   });
+
+   event.preventDefault();
 }
 
 function main() {
@@ -120,4 +145,7 @@ function main() {
 
    //Changing sort preferences detection
    $(".tableheader span").parent().click(changeSortPreference);
+
+   //Form submission detection
+   $("form").submit(uploadToDatabase);
 }
