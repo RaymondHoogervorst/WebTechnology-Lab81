@@ -1,5 +1,20 @@
 $(main);
 
+const months = [
+   'January',
+   'February',
+   'March',
+   'April',
+   'May',
+   'June',
+   'July',
+   'August',
+   'September',
+   'October',
+   'November',
+   'December'
+];
+
 let sortCol = -1;
 let sortAscending = true;
 
@@ -35,12 +50,32 @@ function sortTable() {
 
    //Sorting according to preferences
    $datarows = $datarows.sort(function(a, b) {
-      if ($(a).children().get(sortCol).innerHTML > $(b).children().get(sortCol).innerHTML ^ sortAscending) {
-         return 1;
+      a = $(a).children().get(sortCol).innerHTML;
+      b = $(b).children().get(sortCol).innerHTML;
+      
+      //special sort for date
+      if(sortCol === 2) {
+         var isFirstBigger;
+         a = a.split(' ');
+         b = b.split(' ');
+         if (a[1] > b[1]) {
+            isFirstBigger = true;
+         }
+         else if (a[1] < b[1]) {
+            isFirstBigger = false;
+         }
+         else {
+            isFirstBigger = months.indexOf(a[0]) > months.indexOf(b[0]);
+         }
+
       }
+
+      //sort for text
       else {
-         return -1;
+         isFirstBigger = a > b;
       }
+
+      return (isFirstBigger ^ sortAscending) ? 1 : -1
    });
 
    //Assigning odd/even classes and placing rows back
