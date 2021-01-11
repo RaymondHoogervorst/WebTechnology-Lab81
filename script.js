@@ -20,6 +20,7 @@ let sortAscending = true;
 
 function resetDatabase() {
    $.get("https://wt.ops.labs.vu.nl/api21/0a262ecd/reset");
+   downloadDatabase();
 }
 
 function changeSortPreference(event) {
