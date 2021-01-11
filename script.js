@@ -85,7 +85,36 @@ function sortTable() {
    });
 }
 
+function downloadDatabase() {
+   $.ajax({
+      url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
+      success: function(data) {
+
+         for (let item of data) {
+            let newRow = $('<tr class="odd"></tr>');
+            console.log(item);
+            newRow.append('<td class="col1">' + item.product + '</td>');
+            newRow.append('<td class="col2">' + item.origin + '</td>');
+            newRow.append('<td class="col3">' + item.best_before_date + '</td>');
+            newRow.append('<td class="col4">' + item.amount + '</td>');
+            let image = '<img src="' + item.image + '", alt="' + item.product + '">';
+            console.log(image);
+            newRow.append('<td class="col5">' + image + '</td>');
+
+            $(".tableheader").after(newRow);
+         }
+
+         sortTable();
+      },
+      dataType: "json"
+   });
+}
+
 function main() {
+
+   //loading initial database
+   downloadDatabase();
+
    //Reset button detection
    $("#resetButton").click(resetDatabase);
 
