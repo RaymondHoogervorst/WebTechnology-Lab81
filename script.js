@@ -112,21 +112,25 @@ function downloadDatabase() {
 
 function uploadToDatabase(event) {
 
+   //Checking if each field is valid
    if (
       $(".col1 input").hasClass("good") && 
       $(".col2 input").hasClass("good") && 
       $(".col3 input").hasClass("good") && 
       $(".col4 input").hasClass("good") && 
       $(".col5 input").hasClass("good")) {
-         
+      
+      //Collecting input
       product = $(".col1 input").val();
       origin = $(".col2 input").val();
       date = $(".col3 input").val();
       amount = $(".col4 input").val();
       image = $(".col5 input").val();
 
+      //Converting input to object
       let itemObject = { product:product, origin:origin, best_before_date:date, amount:amount, image:image };
 
+      //Sending data
       $.ajax({
          method: "post",
          url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
@@ -134,6 +138,7 @@ function uploadToDatabase(event) {
          dataType: "json"}).done(downloadDatabase);
    }
    else {
+      //Noting users their input is wrong
       alert("Please fill in all fields correctly");
    }
 
