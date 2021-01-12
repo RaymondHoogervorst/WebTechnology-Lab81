@@ -93,6 +93,7 @@ function downloadDatabase() {
       success: function(data) {
          $(".odd, .even").remove();
 
+         //Add classes to new data
          for (let item of data) {
             let newRow = $('<tr class="odd"></tr>');
             newRow.append('<td class="col1">' + item.product + '</td>');
