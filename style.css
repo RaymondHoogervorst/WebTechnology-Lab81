@@ -186,6 +186,15 @@ input:active[type="submit"], button:active {
    background-color: purple;
 }
 
+/* validation styles */
+td input.good {
+   background-color: #90ee90;
+}
+
+td input.bad {
+   background-color: #ffccbb;
+}
+
 button {
    width: 200px;
    height: auto;

@@ -130,6 +130,34 @@ function uploadToDatabase(event) {
    event.preventDefault();
 }
 
+function validateField() {
+   let $field = $(this);
+   let valid;
+
+   if ($field.val().length !== 0) {
+      valid = true;
+      if ($field.parent().hasClass("col3")) {
+         dateParts = $field.val().split(' ');
+         console.log(months.includes(dateParts[0]))
+         if (dateParts.length != 2 || !months.includes(dateParts[0]) || isNaN(dateParts[1])) {
+            valid = false;
+         }
+      }
+   }
+   else {
+      valid = false;
+   }
+
+   if (valid) {
+      $field.addClass("good");
+      $field.removeClass("bad");
+   }
+   else {
+      $field.addClass("bad");
+      $field.removeClass("good");
+   }
+}
+
 function main() {
 
    //loading initial database
@@ -143,4 +171,7 @@ function main() {
 
    //Form submission detection
    $("form").submit(uploadToDatabase);
+
+   //Form field validation
+   $("input[type='text'], input[type='url'").blur(validateField);
 }
