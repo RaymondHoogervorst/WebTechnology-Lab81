@@ -156,12 +156,14 @@ function validateField() {
       //Check if field is the date field
       if ($field.parent().hasClass("col3")) {
          dateParts = $field.val().split(' ');
-         console.log(months.includes(dateParts[0]))
 
          //Checking if input has 2 parts, if the first part is a month and the second part is a year
          if (dateParts.length != 2 || !months.includes(dateParts[0]) || isNaN(dateParts[1])) {
             valid = false;
          }
+      }
+      else if ($field.parent().hasClass("col5") && $field.val().match(/\.(jpeg|jpg|gif|png)$/) == null) {
+         valid = false;
       }
    }
    else {
