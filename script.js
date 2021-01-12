@@ -144,11 +144,16 @@ function validateField() {
    let $field = $(this);
    let valid;
 
+   //Checking if field is filled in
    if ($field.val().length !== 0) {
       valid = true;
+
+      //Check if field is the date field
       if ($field.parent().hasClass("col3")) {
          dateParts = $field.val().split(' ');
          console.log(months.includes(dateParts[0]))
+
+         //Checking if input has 2 parts, if the first part is a month and the second part is a year
          if (dateParts.length != 2 || !months.includes(dateParts[0]) || isNaN(dateParts[1])) {
             valid = false;
          }
@@ -159,10 +164,12 @@ function validateField() {
    }
 
    if (valid) {
+      //Set class to good if the field is valid
       $field.addClass("good");
       $field.removeClass("bad");
    }
    else {
+      //Set class to bad if the field is invalid
       $field.addClass("bad");
       $field.removeClass("good");
    }
