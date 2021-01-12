@@ -121,18 +121,11 @@ function uploadToDatabase(event) {
    let itemJson = JSON.stringify(itemObject);
 
    console.log(itemJson);
-
-   //TODO: not yet working
-   let request = $.ajax({
+   $.ajax({
       method: "post",
       url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
-      data: itemJson,
-      dataType: "json"});
-      
-      request.fail(function() {
-         console.log("fail");
-         console.log(request.responseText);
-      });
+      data: itemObject,
+      dataType: "json"}).done(downloadDatabase);
 
    event.preventDefault();
 }
