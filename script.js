@@ -133,6 +133,9 @@ function uploadToDatabase(event) {
          data: itemObject,
          dataType: "json"}).done(downloadDatabase);
    }
+   else {
+      alert("Please fill in all fields correctly");
+   }
 
    event.preventDefault();
 }
