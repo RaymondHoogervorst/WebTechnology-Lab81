@@ -111,21 +111,28 @@ function downloadDatabase() {
 }
 
 function uploadToDatabase(event) {
-   product = $(".col1 input").val();
-   origin = $(".col2 input").val();
-   date = $(".col3 input").val();
-   amount = $(".col4 input").val();
-   image = $(".col5 input").val();
 
-   let itemObject = { product:product, origin:origin, best_before_date:date, amount:amount, image:image };
-   let itemJson = JSON.stringify(itemObject);
+   if (
+      $(".col1 input").hasClass("good") && 
+      $(".col2 input").hasClass("good") && 
+      $(".col3 input").hasClass("good") && 
+      $(".col4 input").hasClass("good") && 
+      $(".col5 input").hasClass("good")) {
+         
+      product = $(".col1 input").val();
+      origin = $(".col2 input").val();
+      date = $(".col3 input").val();
+      amount = $(".col4 input").val();
+      image = $(".col5 input").val();
 
-   console.log(itemJson);
-   $.ajax({
-      method: "post",
-      url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
-      data: itemObject,
-      dataType: "json"}).done(downloadDatabase);
+      let itemObject = { product:product, origin:origin, best_before_date:date, amount:amount, image:image };
+
+      $.ajax({
+         method: "post",
+         url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
+         data: itemObject,
+         dataType: "json"}).done(downloadDatabase);
+   }
 
    event.preventDefault();
 }
