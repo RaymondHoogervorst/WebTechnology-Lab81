@@ -136,11 +136,11 @@ table caption {
 }
 
 /* Setting alternating colors for table rows */
-table .odd {
+table .datarow:nth-child(even) {
    background-color: rgb(133, 190, 209);
 }
 
-table .even {
+table .datarow:nth-child(odd) {
    background-color: lightblue;
 }
 

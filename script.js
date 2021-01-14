@@ -81,7 +81,7 @@ function sortTable() {
 
    //Assigning odd/even classes and placing rows back
    $datarows.each(function(index, value) {
-      value.className = (index % 2 === 0) ? "odd" : "even";
+      value.className = "datarow";
       $(".tableheader").after(value);
    });
 }
