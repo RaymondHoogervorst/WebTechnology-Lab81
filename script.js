@@ -136,7 +136,18 @@ function uploadToDatabase(event) {
          method: "post",
          url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
          data: itemObject,
-         dataType: "json"}).done(downloadDatabase);
+         dataType: "json"}).done(function() {
+            let newRow = $('<tr class="datarow"></tr>');
+            newRow.append('<td class="col1">' + product + '</td>');
+            newRow.append('<td class="col2">' + origin + '</td>');
+            newRow.append('<td class="col3">' + date + '</td>');
+            newRow.append('<td class="col4">' + amount + '</td>');
+            let imageHTML = '<img src="' + image + '", alt="' + product + '">';
+            newRow.append('<td class="col5">' + imageHTML + '</td>');
+            $(".tableheader").after(newRow);
+
+            sortTable();
+         });
    }
    else {
       //Noting users their input is wrong
