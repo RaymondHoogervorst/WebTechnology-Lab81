@@ -47,7 +47,7 @@ function changeSortPreference(event) {
 
 function sortTable() {
    //Extracting table rows
-   $datarows = $(".odd, .even").detach();
+   $datarows = $(".datarow").detach();
 
    //Sorting according to preferences
    $datarows = $datarows.sort(function(a, b) {
@@ -79,7 +79,7 @@ function sortTable() {
       return (isFirstBigger ^ sortAscending) ? 1 : -1
    });
 
-   //Assigning odd/even classes and placing rows back
+   //placing rows back
    $datarows.each(function(index, value) {
       value.className = "datarow";
       $(".tableheader").after(value);
@@ -91,11 +91,11 @@ function downloadDatabase() {
    $.ajax({
       url: "https://wt.ops.labs.vu.nl/api21/0a262ecd",
       success: function(data) {
-         $(".odd, .even").remove();
+         $(".datarow").remove();
 
          //Add classes to new data
          for (let item of data) {
-            let newRow = $('<tr class="odd"></tr>');
+            let newRow = $('<tr class="datarow"></tr>');
             newRow.append('<td class="col1">' + item.product + '</td>');
             newRow.append('<td class="col2">' + item.origin + '</td>');
             newRow.append('<td class="col3">' + item.best_before_date + '</td>');
