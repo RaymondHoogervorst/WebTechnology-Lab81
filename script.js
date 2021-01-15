@@ -70,6 +70,22 @@ function sortTable() {
          }
 
       }
+      
+      //sort for amount
+      else if (sortCol === 3) {
+         if (a.length > b.length) {
+            isFirstBigger = true;
+         }
+         else if (a.length < b.length) {
+            isFirstBigger = false;
+         }
+         else if (a > b) {
+            isFirstBigger = true;
+         }
+         else {
+            isFirstBigger = false;
+         }
+      }
 
       //sort for text
       else {
