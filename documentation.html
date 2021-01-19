@@ -24,15 +24,40 @@
          <h2>Add data for new product item</h2>
          <dl>
             <dt>URL:</dt>
-            <dd>http://localhost:3000</dd>
+            <dd>http://localhost:3000/add</dd>
             <dt>Method:</dt>
             <dd>POST</dd>
+            <dt>Request type:</dt>
+            <dd>JSON</dd>
+            <dt>Description:</dt>
+            <dd>
+               Adds the product described in JSON to the database.
+               The properties that need to be defined in JSON are:
+               <ul>
+                  <li>name</li>
+                  <li>origin</li>
+                  <li>best_before_date</li>
+                  <li>amount</li>
+                  <li>image</li>
+               </ul>
+            </dd>
+      </section>
+      <section>
+         <h2>Retrieve certain product</h2>
+         <dl>
+            <dt>URL:</dt>
+            <dd>http://localhost:3000/item</dd>
+            <dt>Method:</dt>
+            <dd>GET</dd>
+            <dt>Request type:</dt>
+            <dd>text</dd>
             <dt>Response type:</dt>
             <dd>JSON</dd>
             <dt>Description:</dt>
             <dd>
-               Posts a new json object to the database
+               Returns a json object containing the product with the id given in the request body
             </dd>
+         </dl>
       </section>
    </body>
 </html>
