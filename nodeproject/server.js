@@ -29,4 +29,24 @@ const app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+   res.send("GETTING ALL");
+});
+
+app.get('/:productID', (req, res) => {
+   res.send("GETTING");
+});
+
+app.post('/', (req, res) => {
+   res.send("ADDING")
+});
+
+app.put('/', (req, res) => {
+   res.send("UPDATING")
+});
+
+app.delete('/', (req, res) => {
+   res.send("DELETING")
+});
+
 app.listen(3000);

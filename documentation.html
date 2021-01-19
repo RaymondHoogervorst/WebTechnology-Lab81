@@ -19,8 +19,6 @@
             <dd>http://localhost:3000</dd>
             <dt>Method:</dt>
             <dd>GET</dd>
-            <dt>Request type:</dt>
-            <dd>None</dd>
             <dt>Response type:</dt>
             <dd>JSON</dd>
             <dt>Description:</dt>
@@ -66,16 +64,14 @@
          <h2>Retrieve certain product</h2>
          <dl>
             <dt>URL:</dt>
-            <dd>http://localhost:3000</dd>
+            <dd>http://localhost:3000/{productID}</dd>
             <dt>Method:</dt>
             <dd>GET</dd>
-            <dt>Request type:</dt>
-            <dd>text</dd>
             <dt>Response type:</dt>
             <dd>JSON</dd>
             <dt>Description:</dt>
             <dd>
-               Returns a json object containing the product with the id given in the request body.<br>
+               Returns a json object containing the product with the id given in the URL.<br>
                The object returned has the following properties:
                <ul>
                   <li>ID</li>
