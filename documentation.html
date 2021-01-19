@@ -5,6 +5,13 @@
       <meta charset="UTF-8">
    </head>
    <body>
+      <header>
+         <h1>Products List API</h1>
+         <p>
+            This is the manual for the Max Market database API, used to
+            access the Max Market products list.
+         </p>
+      </header>
       <section>
          <h2>Retrieve full data set</h2>
          <dl>
@@ -12,11 +19,22 @@
             <dd>http://localhost:3000</dd>
             <dt>Method:</dt>
             <dd>GET</dd>
+            <dt>Request type:</dt>
+            <dd>None</dd>
             <dt>Response type:</dt>
             <dd>JSON</dd>
             <dt>Description:</dt>
             <dd>
-               Returns a json object containing all products from the database
+               Returns a json object containing all products from the database.<br>
+               Each product is an object with the following properties:
+               <ul>
+                  <li>ID</li>
+                  <li>name</li>
+                  <li>origin</li>
+                  <li>best_before_date</li>
+                  <li>amount</li>
+                  <li>image</li>
+               </ul>
             </dd>
          </dl>
       </section>
@@ -24,15 +42,17 @@
          <h2>Add data for new product item</h2>
          <dl>
             <dt>URL:</dt>
-            <dd>http://localhost:3000/add</dd>
+            <dd>http://localhost:3000</dd>
             <dt>Method:</dt>
             <dd>POST</dd>
             <dt>Request type:</dt>
             <dd>JSON</dd>
+            <dt>Response type</dt>
+            <dd>text</dd>
             <dt>Description:</dt>
             <dd>
-               Adds the product described in JSON to the database.
-               The properties that need to be defined in JSON are:
+               Adds the product described in JSON to the database and returns the assigned ID.<br>
+               The properties that need to be defined in the request JSON are:
                <ul>
                   <li>name</li>
                   <li>origin</li>
@@ -46,7 +66,7 @@
          <h2>Retrieve certain product</h2>
          <dl>
             <dt>URL:</dt>
-            <dd>http://localhost:3000/item</dd>
+            <dd>http://localhost:3000</dd>
             <dt>Method:</dt>
             <dd>GET</dd>
             <dt>Request type:</dt>
@@ -55,7 +75,16 @@
             <dd>JSON</dd>
             <dt>Description:</dt>
             <dd>
-               Returns a json object containing the product with the id given in the request body
+               Returns a json object containing the product with the id given in the request body.<br>
+               The object returned has the following properties:
+               <ul>
+                  <li>ID</li>
+                  <li>name</li>
+                  <li>origin</li>
+                  <li>best_before_date</li>
+                  <li>amount</li>
+                  <li>image</li>
+               </ul>
             </dd>
          </dl>
       </section>
@@ -63,14 +92,27 @@
          <h2>Update certain product</h2>
          <dl>
             <dt>URL:</dt>
-            <dd>http://localhost:3000/item</dd>
+            <dd>http://localhost:3000</dd>
             <dt>Method:</dt>
             <dd>PUT</dd>
-            <dt>Response type:</dt>
+            <dt>Request type:</dt>
             <dd>JSON</dd>
+            <dt>Response type:</dt>
+            <dd>None</dd>
             <dt>Description:</dt>
             <dd>
-               Edit data of an existing item in the database
+               Edit data of an existing item in the database.<br>
+               The properties that can be defined in the request JSON are:
+               <ul>
+                  <li>ID</li>
+                  <li>name</li>
+                  <li>origin</li>
+                  <li>best_before_date</li>
+                  <li>amount</li>
+                  <li>image</li>
+               </ul>
+               Out of these the ID is required. The other properties only need to be defined if their
+               corresponding field needs updating.
             </dd>
          </dl>
       </section>
@@ -81,11 +123,13 @@
             <dd>http://localhost:3000/item</dd>
             <dt>Method:</dt>
             <dd>DELETE</dd>
+            <dt>Request type:</dt>
+            <dd>Text</dd>
             <dt>Response type:</dt>
-            <dd>JSON</dd>
+            <dd>None</dd>
             <dt>Description:</dt>
             <dd>
-               Deletes the product described in json from the database
+               Deletes the product with the ID in the request body from the database.
             </dd>
          </dl>
       </section>
