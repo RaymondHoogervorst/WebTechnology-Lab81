@@ -8,7 +8,7 @@ db.serialize(() => {
    db.run(`
       CREATE TABLE IF NOT EXISTS products
       (id 	  INTEGER PRIMARY KEY,
-      product	CHAR(100) NOT NULL,
+      name	CHAR(100) NOT NULL,
       origin 	CHAR(100) NOT NULL,
       best_before_date 	CHAR(20) NOT NULL,
       amount  CHAR(20) NOT NULL,
@@ -20,7 +20,7 @@ db.serialize(() => {
    //Inserting apples for testing purposes
    db.all('SELECT COUNT(*) AS count FROM products', function(err, result) {
       if (result[0].count == 0) {
-         db.run(`INSERT INTO products (product, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)`,
+         db.run(`INSERT INTO products (name, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)`,
          ["Apples", "The Netherlands", "November 2019", "100kg", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg"]);
       }
    })
@@ -53,8 +53,13 @@ app.post('/', (req, res) => {
    res.send("ADDING")
 });
 
-app.put('/', (req, res) => {
-   res.send("UPDATING")
+app.put('/:productID', (req, res) => {
+   var updateList = "";
+
+   console.log(req.params.productID)
+   db.all('UPDATE products SET ' + updateList + ' WHERE id = ' + 1, function(err, result) {
+      res.send("updating");
+   })
 });
 
 app.delete('/', (req, res) => {

@@ -74,7 +74,7 @@
                Returns a json object containing the product with the id given in the URL.<br>
                The object returned has the following properties:
                <ul>
-                  <li>ID</li>
+                  <li>id</li>
                   <li>name</li>
                   <li>origin</li>
                   <li>best_before_date</li>
@@ -88,7 +88,7 @@
          <h2>Update certain product</h2>
          <dl>
             <dt>URL:</dt>
-            <dd>http://localhost:3000</dd>
+            <dd>http://localhost:3000/{productID}</dd>
             <dt>Method:</dt>
             <dd>PUT</dd>
             <dt>Request type:</dt>
@@ -97,17 +97,16 @@
             <dd>None</dd>
             <dt>Description:</dt>
             <dd>
-               Edit data of an existing item in the database.<br>
+               Edit data of an existing product with the id given in the URL.<br>
                The properties that can be defined in the request JSON are:
                <ul>
-                  <li>ID</li>
                   <li>name</li>
                   <li>origin</li>
                   <li>best_before_date</li>
                   <li>amount</li>
                   <li>image</li>
                </ul>
-               Out of these the ID is required. The other properties only need to be defined if their
+               All of these properties are optional. The properties only need to be defined if their
                corresponding field needs updating.
             </dd>
          </dl>
