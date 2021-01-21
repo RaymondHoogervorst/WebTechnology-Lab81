@@ -50,7 +50,9 @@ app.get('/:productID', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-   res.send("ADDING")
+   db.all('INSERT INTO products (name, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)',
+     [item['name'], item['origin'], item['best_before_date'], item['amount'],  item['image']], function(err, result) {
+      res.send("posting");
 });
 
 app.put('/:productID', (req, res) => {
