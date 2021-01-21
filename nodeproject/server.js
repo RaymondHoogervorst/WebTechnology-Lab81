@@ -53,11 +53,26 @@ app.get('/:productID', (req, res) => {
 app.post('/', (req, res) => {
 
    var item = req.body;
+   var item = [
+      item["name"],
+      item["origin"],
+      item["best_before_date"],
+      item["amount"],
+      item["image"]
+   ];
 
-   db.all('INSERT INTO products (name, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)',
-     [item['name'], item['origin'], item['best_before_date'], item['amount'],  item['image']], function(err, result) {
+   for (cell of item) {
+      if (cell === undefined) {
+         res.status(400).send("At least one field is undefined");
+      }
+   }
+
+   if (req.headerSend) {
+      db.all('INSERT INTO products (name, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)',
+      item, function(err, result) {
       res.send("posting");
-   })
+      })
+   }
 });
 
 app.put('/:productID', (req, res) => {
@@ -82,8 +97,11 @@ app.put('/:productID', (req, res) => {
 });
 
 app.delete('/:productID', (req, res) => {
-   db.all('DELETE FROM products WHERE id = ' + req.params.productID, function(err, result) {
-      res.send("deleting");
+   db.run('DELETE FROM products WHERE id = ' + req.params.productID, function(err, result) {
+      if (this.changes !== 1) {
+         res.status(404).send("No item in our database has ID: " + req.params.productID);
+      }
+      res.send();
    })
 });
 
