@@ -20,8 +20,6 @@ db.serialize(() => {
    //Inserting apples for testing purposes
    db.all('SELECT COUNT(*) AS count FROM PRODUCTS', function(err, result) {
       if (result[0].count == 0) {
-         console.log("inserting apples");
-         console.log(result[0].count)
          db.run(`INSERT INTO products (product, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)`,
          ["Apples", "The Netherlands", "November 2019", "100kg", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg"]);
       }
