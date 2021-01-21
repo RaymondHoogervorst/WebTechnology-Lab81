@@ -30,6 +30,7 @@ const express = require("express");
 const app = express();
 
 var bodyParser = require("body-parser");
+const { request } = require('express');
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
@@ -56,10 +57,22 @@ app.post('/', (req, res) => {
 app.put('/:productID', (req, res) => {
    var updateList = "";
 
-   console.log(req.params.productID)
-   db.all('UPDATE products SET ' + updateList + ' WHERE id = ' + 1, function(err, result) {
-      res.send("updating");
-   })
+   object = req.body;
+
+   for (column in object) {
+      updateList += column + ' = "' + object[column] + '", ';
+   }
+
+   updateList = updateList.substr(0, updateList.length - 2);
+
+   var query = 'UPDATE products SET ' + updateList + ' WHERE id = ' + req.params.productID;
+
+   db.run(query, function(err,result) {
+      if (this.changes !== 1) {
+         res.status(404).send("No item in our database has ID: " + req.params.productID);
+      }
+      res.send();
+   });
 });
 
 app.delete('/', (req, res) => {
