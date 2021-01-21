@@ -33,7 +33,9 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-   res.send("GETTING ALL");
+   db.all('SELECT * FROM products', function(err, result) {
+      res.send(result);
+   })
 });
 
 app.get('/:productID', (req, res) => {
