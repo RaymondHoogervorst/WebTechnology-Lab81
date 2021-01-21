@@ -39,7 +39,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:productID', (req, res) => {
-   res.send("GETTING");
+   db.all('SELECT * FROM products WHERE id = ' + req.params.productID, function(err, result) {
+      if(result.length === 1) {
+         res.send(result[0]);
+      }
+      else {
+         res.status(404).send("No item in our database has ID: " + req.params.productID);
+      }
+   })
 });
 
 app.post('/', (req, res) => {
