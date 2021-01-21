@@ -1,3 +1,6 @@
+console.log("Starting MaxMarket CRUD api");
+var port = 3000;
+
 //Create database
 const sqlite3 = require('sqlite3').verbose();
 
@@ -14,8 +17,6 @@ db.serialize(() => {
       amount  CHAR(20) NOT NULL,
       image   CHAR(254) NOT NULL
         )`);
-   
-   console.log("database and table created");
 
    //Inserting apples for testing purposes
    db.all('SELECT COUNT(*) AS count FROM products', function(err, result) {
@@ -26,6 +27,8 @@ db.serialize(() => {
    })
 });
 
+console.log("Database created");
+
 const express = require("express");
 const app = express();
 
@@ -35,19 +38,21 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
    db.all('SELECT * FROM products', function(err, result) {
-      res.send(result);
+      sendRequest(req, res, result);
    })
 });
 
 app.get('/:productID', (req, res) => {
-   db.all('SELECT * FROM products WHERE id = ' + req.params.productID, function(err, result) {
-      if(result.length === 1) {
-         res.send(result[0]);
-      }
-      else {
-         res.status(404).send("No item in our database has ID: " + req.params.productID);
-      }
-   })
+   db.serialize (() => {
+      db.all('SELECT * FROM products WHERE id = ' + req.params.productID, function(err, result) {
+         if(result.length === 1) {
+            sendRequest(req, res, result[0]);
+         }
+         else {
+            sendRequest(req, res, "No item in our database has ID: " + req.params.productID, 404);
+         }
+      })
+   });
 });
 
 app.post('/', (req, res) => {
@@ -63,14 +68,14 @@ app.post('/', (req, res) => {
 
    for (cell of item) {
       if (cell === undefined) {
-         res.status(400).send("At least one field is undefined");
+         sendRequest(req, res, "At least one field is undefined", 400);
       }
    }
 
-   if (req.headerSend) {
+   if (!req.headerSend) {
       db.all('INSERT INTO products (name, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)',
       item, function(err, result) {
-      res.send("posting");
+         sendRequest(req, res);
       })
    }
 });
@@ -90,19 +95,40 @@ app.put('/:productID', (req, res) => {
 
    db.run(query, function(err,result) {
       if (this.changes !== 1) {
-         res.status(404).send("No item in our database has ID: " + req.params.productID);
+         sendRequest(req, res, "No item in our database has ID: " + req.params.productID, 404);
       }
-      res.send();
+      sendRequest(req, res);
    });
 });
 
 app.delete('/:productID', (req, res) => {
    db.run('DELETE FROM products WHERE id = ' + req.params.productID, function(err, result) {
       if (this.changes !== 1) {
-         res.status(404).send("No item in our database has ID: " + req.params.productID);
+         sendRequest(req, res, "No item in our database has ID: " + req.params.productID, 404);
       }
-      res.send();
+      sendRequest(req, res);
    })
+   logRequest(req, res);
 });
 
-app.listen(3000);
+app.all('*', (req, res) => {
+   sendRequest(req, res, "This type of request is not supported", 403);
+})
+
+sendRequest = function (req, res, message, status) {
+   res.status(200);
+   if (status) {
+      res.status(status);
+   }
+   res.send(message);
+
+
+   var log = "";
+   log += "IP: " + req.connection.remoteAddress + " ";
+   log += "Method: " + req.method + " ";
+   log += "Status: " + res.statusCode + " ";
+   console.log(log);
+} 
+
+app.listen(port);
+console.log("Succesfully started server and now listening at port:" + port);
