@@ -53,6 +53,7 @@ app.post('/', (req, res) => {
    db.all('INSERT INTO products (name, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)',
      [item['name'], item['origin'], item['best_before_date'], item['amount'],  item['image']], function(err, result) {
       res.send("posting");
+   })
 });
 
 app.put('/:productID', (req, res) => {
@@ -65,7 +66,9 @@ app.put('/:productID', (req, res) => {
 });
 
 app.delete('/', (req, res) => {
-   res.send("DELETING")
+   db.all('DELETE FROM products WHERE id = ' + id, function(err, result) {
+      res.send("deleting");
+   })
 });
 
 app.listen(3000);
