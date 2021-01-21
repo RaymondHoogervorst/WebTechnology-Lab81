@@ -66,7 +66,7 @@ app.put('/:productID', (req, res) => {
 });
 
 app.delete('/', (req, res) => {
-   db.all('DELETE FROM products WHERE id = ' + id, function(err, result) {
+   db.all('DELETE FROM products WHERE id = ' + req.params.productID, function(err, result) {
       res.send("deleting");
    })
 });
