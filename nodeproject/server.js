@@ -51,6 +51,9 @@ app.get('/:productID', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+
+   var item = req.body;
+
    db.all('INSERT INTO products (name, origin, best_before_date, amount, image) VALUES (?, ?, ?, ?, ?)',
      [item['name'], item['origin'], item['best_before_date'], item['amount'],  item['image']], function(err, result) {
       res.send("posting");
