@@ -139,7 +139,9 @@ app.all('*', (req, res) => {
 
 //Sends request and logs request
 sendRequest = function (req, res, message, status) {
-   res.status(200);
+   //Choosing default between 200 and 201
+   res.status((message) ? 200 : 201);
+
    //Composing appropiate return message
    if (status) {
       res.status(status);
@@ -148,9 +150,14 @@ sendRequest = function (req, res, message, status) {
       console.log(message);
       message = "Internal server error";
    }
-   if (res.statusCode !== 200) {
+   if (res.statusCode !== 200 && res.statusCode !== 201) {
       message = '{"error":"' + message + '"}';
    }
+
+   //Setting header
+   res.type('json');
+   res.setHeader('cross-orgin-allow-methods', 'POST, GET, DELETE, PUT');
+
    res.send(message);
 
    //Creating log message

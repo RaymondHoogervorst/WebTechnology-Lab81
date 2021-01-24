@@ -129,10 +129,19 @@
          </dl>
       </section>
       <section>
-         <h2>Error response codes</h2>
+         <h2>Response codes</h2>
          <ul>
             <li>
+               <strong>200</strong> The request has been succesfully recieved.
+            </li>
+            <li>
+               <strong>201</strong> The request has been succesfully recieved and the database has been adjusted.
+            </li>
+            <li>
                <strong>400</strong> At least one of the required attributes is not found in the request JSON.
+            </li>
+            <li>
+               <strong>403</strong> The method you are trying to use is unavailable.
             </li>
             <li>
                <strong>404</strong> The ID of the product you tried to reach could not be found.
