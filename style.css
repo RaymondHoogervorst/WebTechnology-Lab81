@@ -100,6 +100,8 @@ figure figcaption {
 #about p {
    display: inline;
    text-indent: 5px;
+   widows: 4;
+   orphans: 4;
 }
 
 /* Leaving space between list items for key values */
@@ -231,7 +233,7 @@ ul {
    list-style-type: square;
 }
 
-/* Creating container for footer */
+/* Creating container for footper */
 footer {
    background: black url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg");
    background-repeat: repeat;
