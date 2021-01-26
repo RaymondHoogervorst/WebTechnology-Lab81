@@ -195,6 +195,16 @@ td input.bad {
    background-color: #ffccbb;
 }
 
+small {
+   display: none;
+   color: white;
+   background-color: red;
+}
+
+small.displayed {
+   display:inline;
+}
+
 button {
    width: 200px;
    height: auto;

@@ -207,7 +207,17 @@ function validateField() {
       //Set class to bad if the field is invalid
       $field.addClass("bad");
       $field.removeClass("good");
+      $('small').addClass("displayed");
    }
+
+   if (
+      !$(".col1 input").hasClass("bad") && 
+      !$(".col2 input").hasClass("bad") && 
+      !$(".col3 input").hasClass("bad") && 
+      !$(".col4 input").hasClass("bad") && 
+      !$(".col5 input").hasClass("bad")) {
+         $('small').removeClass("displayed");
+      }
 }
 
 function main() {
