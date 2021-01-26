@@ -39,6 +39,7 @@ pre {
    margin-top: 0;
    margin-bottom: 5px;
    font-size: 1.5em;
+   font-style: italic;
 }
 
 /* Setting navbar background and remove space between individual buttons */
@@ -59,6 +60,8 @@ nav {
    border-right: 1px solid gray;
    color: black;
    font-size: 15pt;
+   margin-left: 0;
+   margin-right: 0;
 }
 
 .navbutton:hover {
@@ -148,6 +151,8 @@ table .datarow:nth-child(odd) {
 td {
    text-align: center;
    padding: 5px;
+   padding-top: 2px;
+   padding-bottom: 5px;
    vertical-align: top;
 }
 
@@ -223,7 +228,8 @@ ul {
 
 /* Creating container for footer */
 footer {
-   background: black url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg") repeat;
+   background: black url("https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg");
+   background-repeat: repeat;
    padding: 8px var(--side-padding);
    color: white;
    overflow: hidden;
@@ -306,6 +312,7 @@ footer a:visited {
    /* Page break to prevent the table being split on multiple pages*/
    #products {
       page-break-before: always;
+      page-break-after: always;
    }
 
    /* Adding border to table for more clarity (background color get's ignored on some browsers) */
