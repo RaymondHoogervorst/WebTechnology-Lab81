@@ -25,6 +25,8 @@ h1, pre, nav, section, footer {
 header {
    background-image: url("https://www.lithospos.com/storage/app/media/fruits-vegetables-pos-banner.jpg");
    background-color: var(--primary-color);
+   font-family:'Courier New', Courier, monospace;
+   font-variant: normal;
 }
 
 /* styling background */
