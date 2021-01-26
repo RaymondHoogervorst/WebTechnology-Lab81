@@ -160,6 +160,9 @@ td {
 
 td dl {
    margin-top: 0;
+   list-style-image: none;
+   list-style-position: inside;
+
 }
 
 /* Making input fields fill table cell */
